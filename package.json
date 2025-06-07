@@ -2,6 +2,14 @@
   "name": "mikro-orm-soft-deletes",
   "version": "0.0.1",
   "description": "Add support for soft deletes on Mikro ORM",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TiagoDamascena/mikro-orm-soft-deletes.git"
+  },
+  "keywords": [
+    "mikro-orm",
+    "soft-deletes"
+  ],
   "main": "dist/index.js",
   "scripts": {
     "build": "npx tsc",
