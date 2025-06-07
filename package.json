@@ -1,0 +1,19 @@
+{
+  "name": "mikro-orm-soft-deletes",
+  "version": "0.0.1",
+  "description": "Add support for soft deletes on Mikro ORM",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "watch": "npx tsc -w"
+  },
+  "author": "TiagoDamascena",
+  "license": "MIT",
+  "devDependencies": {
+    "@mikro-orm/core": "^6.4.16",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "@mikro-orm/core": "^6.0.0"
+  }
+}
