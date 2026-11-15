@@ -1,27 +1,58 @@
 {
   "name": "mikro-orm-soft-deletes",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Add support for soft deletes on Mikro ORM",
   "repository": {
     "type": "git",
-    "url": "git://github.com/TiagoDamascena/mikro-orm-soft-deletes.git"
+    "url": "git+https://github.com/TiagoDamascena/mikro-orm-soft-deletes.git"
   },
+  "homepage": "https://github.com/TiagoDamascena/mikro-orm-soft-deletes#readme",
+  "bugs": "https://github.com/TiagoDamascena/mikro-orm-soft-deletes/issues",
   "keywords": [
     "mikro-orm",
     "soft-deletes"
   ],
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "npx tsc",
-    "watch": "npx tsc -w"
-  },
   "author": "TiagoDamascena",
   "license": "MIT",
-  "devDependencies": {
-    "@mikro-orm/core": "^6.4.16",
-    "typescript": "^5.8.3"
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./legacy": {
+      "types": "./dist/legacy.d.ts",
+      "default": "./dist/legacy.js"
+    },
+    "./es": {
+      "types": "./dist/es.d.ts",
+      "default": "./dist/es.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 22.17.0"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && rm -rf .test-dist && tsc -p test/legacy && tsc -p test/es && node --test \".test-dist/**/*.test.js\"",
+    "prepublishOnly": "npm test"
   },
   "peerDependencies": {
-    "@mikro-orm/core": "^6.0.0"
+    "@mikro-orm/core": "^7.0.0",
+    "@mikro-orm/decorators": "^7.0.0"
+  },
+  "devDependencies": {
+    "@mikro-orm/core": "^7.2.9",
+    "@mikro-orm/decorators": "^7.2.9",
+    "@mikro-orm/postgresql": "^7.2.9",
+    "@types/node": "^24.19.2",
+    "reflect-metadata": "^0.2.2",
+    "typescript": "^6.0.3"
   }
 }
