@@ -117,6 +117,19 @@ connection from `DB_HOST`, `DB_PORT`, `DB_USER` and `DB_PASSWORD` (by default `l
 npm test
 ```
 
+### Publishing
+
+Publishing a GitHub release stages the package on npm, through the `Publish` workflow. The release tag has to match
+the `version` in `package.json` (`1.0.0` or `v1.0.0`), and the workflow runs the typecheck and the tests before
+staging. A release marked as a pre-release is staged with the `next` dist-tag instead of `latest`.
+
+A staged version is not installable until a maintainer approves it with 2FA, on npmjs.com or with
+`npm stage approve <stage-id>` (`npm stage list` shows the queue). The workflow cannot approve it.
+
+The workflow authenticates with npm trusted publishing (OIDC), so there is no npm token in the repository. The
+package on npm trusts this repository's `publish.yml` for `npm stage publish` only, not for `npm publish`, and npm
+adds the provenance of each version.
+
 ## About
 
 This package was heavily inspired and influenced by this existing [package](https://github.com/Char2sGu/mikro-orm-soft-delete).
