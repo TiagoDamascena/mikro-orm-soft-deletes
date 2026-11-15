@@ -1,17 +1,17 @@
 {
-  "include": ["src/**/*"],
   "compilerOptions": {
-    "composite": true,
-    "target": "es2020",
-    "module": "commonjs",
+    "target": "ES2023",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "strict": true,
     "declaration": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "skipLibCheck": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
     "rootDir": "./src",
-    "outDir": "./dist",
+    "outDir": "./dist"
   },
+  "include": ["src/**/*"]
 }
